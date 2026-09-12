@@ -1,0 +1,17 @@
+services:
+  app:
+    image: python:3.12-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:5000"   # dashboard (container 5000) → preview (host 3000)
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    command: >
+      bash -c "
+        pip install --no-cache-dir -r requirements.txt &&
+        python main.py
+      "
+    restart: unless-stopped

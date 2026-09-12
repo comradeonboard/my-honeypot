@@ -9,7 +9,7 @@ Starts all services:
 import sys, threading, time
 from pathlib import Path
 
-for d in ["data","logs","ml/model","dashboard/templates","dashboard/static"]:
+for d in ["data","logs","ml/model","dashboard/templates","dashboard/static","keys"]:
     Path(d).mkdir(parents=True, exist_ok=True)
 
 from capture.logger import get_logger
